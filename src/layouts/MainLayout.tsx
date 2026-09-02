@@ -20,7 +20,8 @@ export default function MainLayout() {
                 </div>
 
                 <div className="page-content">
-                    <Outlet />
+                    <Outlet />  
+                    {/* Outlet is a placeholder. Think of it as an empty box. React did NOT reload the entire page. Only the component inside <Outlet /> changed. This is one of the reasons React applications feel fast.*/}
                 </div>
 
             </div>
