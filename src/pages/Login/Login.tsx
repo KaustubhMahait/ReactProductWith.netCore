@@ -1,76 +1,162 @@
+// import { useState } from "react";
+// import type { LoginRequest } from "../../interfaces/LoginRequest";
+// import "./Login.css";
+
+// export default function Login() {
+
+// const [login, setLogin] = useState<LoginRequest>({
+//     username: "",
+//     password: ""
+// });
+
+// const [loading, setLoading] = useState(false);
+
+// const handleChange = (
+//     e: React.ChangeEvent<HTMLInputElement>
+// ) => {
+
+//     const { name, value } = e.target;
+
+//     setLogin({
+
+//         ...login,
+
+//         [name]: value
+
+//     });
+
+// };
+
+// const handleSubmit = async () => {
+
+//     setLoading(true);
+
+//     console.log(login);
+
+//     await new Promise(resolve => setTimeout(resolve, 3000));  // Professional applications never allow multiple clicks.
+
+//     setLoading(false);
+
+// };
+
+//     return (
+
+//     <div>
+
+//         <h2>Employee Login</h2>
+
+//         <label>Username</label>
+
+//         <br />
+
+//         <input type="text" name="username" value={login.username} onChange={handleChange}/>
+
+//         <br />
+
+//         <label>Password</label>
+
+//         <br />
+
+//         <input type="password" name="password" value={login.password} onChange={handleChange}/>
+
+//         <pre>
+//             {JSON.stringify(login,null,2)}
+//         </pre>
+        
+//         <button onClick={handleSubmit} disabled={loading}> {loading ? "Logging in..." : "Login"} </button>   
+//          {/* disabled={loading} On Page load loading is set as false hence loding is false so Login is show but when we click on login 
+//          button loading is set as true hence Logging in... is show and button is disabled  Loading state to prevent duplicate submissions. */}
+//     </div>
+
+// );
+
+// }
+
+
 import { useState } from "react";
-import type { LoginRequest } from "../../interfaces/LoginRequest";
+import { login } from "../../services/authService";
 import "./Login.css";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
-const [login, setLogin] = useState<LoginRequest>({
-    username: "",
-    password: ""
-});
+    const auth = useAuth();
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
-const [loading, setLoading] = useState(false);
+const handleLogin = async () => {
 
-const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-) => {
+    try {
 
-    const { name, value } = e.target;
+        const response = await login({
+            userName: userName,
+            password: password
+        });
 
-    setLogin({
+        auth.login(
+    response.accessToken,
+    response.refreshToken
+)
 
-        ...login,
+        navigate("/dashboard");
 
-        [name]: value
+    }
+    catch (error) {
 
-    });
+        console.error(error);
 
-};
-
-const handleSubmit = async () => {
-
-    setLoading(true);
-
-    console.log(login);
-
-    await new Promise(resolve => setTimeout(resolve, 3000));  // Professional applications never allow multiple clicks.
-
-    setLoading(false);
+    }
 
 };
 
     return (
+        <div className="login-container">
 
-    <div>
+            <div className="login-card">
 
-        <h2>Employee Login</h2>
+                <h2>Employee Management</h2>
 
-        <label>Username</label>
+                <div className="form-group">
+                    <label>Username</label>
 
-        <br />
+                    <input
+                        type="text"
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
+                    />
+                </div>
 
-        <input type="text" name="username" value={login.username} onChange={handleChange}/>
+                <div className="form-group">
 
-        <br />
+                    <label>Password</label>
 
-        <label>Password</label>
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
 
-        <br />
+                </div>
 
-        <input type="password" name="password" value={login.password} onChange={handleChange}/>
+                <button onClick={handleLogin}>
+                    Login
+                </button>
 
-        <pre>
-            {JSON.stringify(login,null,2)}
-        </pre>
-        
-        <button onClick={handleSubmit} disabled={loading}> {loading ? "Logging in..." : "Login"} </button>   
-         {/* disabled={loading} On Page load loading is set as false hence loding is false so Login is show but when we click on login 
-         button loading is set as true hence Logging in... is show and button is disabled  Loading state to prevent duplicate submissions. */}
-    </div>
+<pre>
+{JSON.stringify({
+    userName,
+    password
+}, null, 2)}
+</pre>
 
-);
+            </div>
 
+        </div>
+    );
 }
+
 
 // Final Login Flow
 // User
@@ -95,3 +181,40 @@ const handleSubmit = async () => {
 // Loading state to prevent duplicate submissions.
 // Async functions for API calls.
 // Service layer to separate UI from networking.
+
+// Login.tsx : UI & User Interaction
+
+
+// Why localStorage?
+
+// React variables disappear when the page refreshes.
+
+// Example:
+
+// Login
+
+//   ↓
+
+// Token in useState
+
+//   ↓
+
+// Press F5
+
+//   ↓
+
+// Gone ❌
+
+// Login
+
+//   ↓
+
+// Token in localStorage
+
+//   ↓
+
+// Press F5
+
+//   ↓
+
+// Still Exists ✅

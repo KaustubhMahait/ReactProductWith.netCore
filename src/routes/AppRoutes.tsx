@@ -6,6 +6,7 @@ import Employee from "../pages/Employee/Employee";
 import Department from "../pages/Department/Department";
 
 import MainLayout from "../layouts/MainLayout";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function AppRoutes() {
 
@@ -24,24 +25,28 @@ export default function AppRoutes() {
 
                 {/* Layout */}
 
-                <Route element={<MainLayout />}>
+                <Route element={<ProtectedRoute />}>
 
-                    <Route
-                        path="/dashboard"
-                        element={<Dashboard />}
-                    />
+    <Route element={<MainLayout />}>
 
-                    <Route
-                        path="/employee"
-                        element={<Employee />}
-                    />
+        <Route
+            path="/dashboard"
+            element={<Dashboard />}
+        />
 
-                    <Route
-                        path="/department"
-                        element={<Department />}
-                    />
+        <Route
+            path="/employee"
+            element={<Employee />}
+        />
 
-                </Route>
+        <Route
+            path="/department"
+            element={<Department />}
+        />
+
+    </Route>
+
+</Route>
 
             </Routes>
 
