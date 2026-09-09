@@ -5,7 +5,7 @@ export default function ProtectedRoute() {
 
     const auth = useAuth();
 
-console.log("Authenticated:", auth.isAuthenticated);
+    console.log("Authenticated:", auth.isAuthenticated);
 
     if (!auth.isAuthenticated) {
         return <Navigate to="/" replace />;

@@ -144,12 +144,12 @@ const handleLogin = async () => {
                     Login
                 </button>
 
-<pre>
-{JSON.stringify({
-    userName,
-    password
-}, null, 2)}
-</pre>
+                <pre>
+                    {JSON.stringify({
+                            userName,
+                            password
+                    }, null, 2)}
+                </pre>
 
             </div>
 

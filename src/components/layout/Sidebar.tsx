@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate,NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { logout } from "../../services/authService";
 
@@ -38,9 +38,17 @@ const handleLogout = async () => {
     return (
 
         <>
-            <p>Dashboard</p>
-            <p>Employee</p>
-            <p>Department</p>
+            <p>
+            <NavLink to="/dashboard">Dashboard</NavLink>
+            </p>
+
+            <p>
+             <NavLink to="/employee">Employee</NavLink>
+            </p>
+
+            <p>
+             <NavLink to="/department">Department</NavLink>
+            </p>
             <p
                style={{ cursor: "pointer" }}
                onClick={handleLogout}

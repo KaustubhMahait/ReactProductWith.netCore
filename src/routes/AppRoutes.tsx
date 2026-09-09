@@ -18,35 +18,23 @@ export default function AppRoutes() {
 
                 {/* Login */}
 
-                <Route
-                    path="/"
-                    element={<Login />}
-                />
+                <Route path="/" element={<Login />}/>
 
                 {/* Layout */}
 
                 <Route element={<ProtectedRoute />}>
 
-    <Route element={<MainLayout />}>
+                    <Route element={<MainLayout />}>
 
-        <Route
-            path="/dashboard"
-            element={<Dashboard />}
-        />
+                        <Route path="/dashboard" element={<Dashboard />} />
 
-        <Route
-            path="/employee"
-            element={<Employee />}
-        />
+                        <Route path="/employee" element={<Employee />} />
 
-        <Route
-            path="/department"
-            element={<Department />}
-        />
+                        <Route path="/department" element={<Department />} />
 
-    </Route>
+                    </Route>
 
-</Route>
+                </Route>
 
             </Routes>
 
