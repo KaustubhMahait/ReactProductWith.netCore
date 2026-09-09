@@ -53,14 +53,6 @@ type AuthProviderProps = {
 export function AuthProvider({ children }: AuthProviderProps) {
 
 
-
-    // const [accessToken, setAccessToken] = useState<string | null>(
-
-        
-
-    //     localStorage.getItem("accessToken")
-    // );
-
 const token = localStorage.getItem("accessToken");
 
    const [accessToken, setAccessToken] = useState<string | null>(token);
