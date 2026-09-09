@@ -1,5 +1,6 @@
 import api from "./api";
 import type { LoginRequest, LoginResponse } from "../interfaces/auth";
+import type { LogoutRequest } from "../interfaces/LogoutRequest";
 
 export const login = async (
     request: LoginRequest
@@ -11,6 +12,17 @@ export const login = async (
     );
 
     return response.data;
+};
+
+export const logout = async (request: LogoutRequest) => {
+
+    const response = await api.post(
+        "/Auth/logout",
+        request
+    );
+
+    return response.data;
+
 };
 
 //  Why Create Services?  
