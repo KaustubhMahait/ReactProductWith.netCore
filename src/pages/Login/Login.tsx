@@ -95,10 +95,7 @@ const handleLogin = async () => {
             password: password
         });
 
-        auth.login(
-    response.accessToken,
-    response.refreshToken
-)
+        auth.login( response.accessToken, response.refreshToken )
 
         navigate("/dashboard");
 

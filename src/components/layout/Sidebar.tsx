@@ -49,12 +49,11 @@ const handleLogout = async () => {
             <p>
              <NavLink to="/department">Department</NavLink>
             </p>
-            <p
-               style={{ cursor: "pointer" }}
-               onClick={handleLogout}
-            >
+
+            <p style={{ cursor: "pointer" }} onClick={handleLogout}>
                 Logout
             </p>
+            
         </>
 
     );
