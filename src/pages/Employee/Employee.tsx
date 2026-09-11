@@ -126,7 +126,7 @@ export default function Employee() {
             <h2>Employee Management</h2>
 
             { showForm && <EmployeeForm 
-                                        key={selectedEmployee?.employeeId ?? "new"}
+                                        key={selectedEmployee?.employeeId ?? "new"}  // The ?. means: "Only access employeeId if selectedEmployee is not null." If something is null or undefined, use "new" instead.
                                         employeeToEdit={selectedEmployee}
                                         onClose={() => setShowForm(false)} 
                                         onSaved={loadEmployees}/>}  
