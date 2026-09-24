@@ -5,6 +5,7 @@ import type { EmployeeForm } from "../../interfaces/EmployeeForm";
 export default function EmployeeForm(){
 
     const[loading,SetLoading]=useState(true);
+    const[chboxVal,SetCheckBoxVal]=useState(false);
 
      // const[empform,SetEmpForm]=useState<EmployeeForm[]>([]);  // The EmployeeForm[] means: "This state will contain an array of EmployeeForm objects." 
                                                              // This is the initial value. useState<EmployeeForm[]>([]) You're saying: Initially, empform is an empty array.
@@ -42,36 +43,41 @@ export default function EmployeeForm(){
     },[]);
 
     
-    const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const handleChange = ( e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
 
-    const { name, value, type } = e.target;
+                const { name, value, type } = e.target;
 
-    if (type === "checkbox") {
+                if (type === "checkbox") {
 
-        const checked = (e.target as HTMLInputElement).checked;
+                        const checked = (e.target as HTMLInputElement).checked;
 
-        if (name === "eskillchks") {
+                        if (name === "eskillchks") {
 
-            SetEmpForm(prev => ({
-                ...prev,
-                eskillchks: checked
-                    ? [...prev.eskillchks, value]
-                    : prev.eskillchks.filter(skill => skill !== value)
-            }));
+                            SetEmpForm(prev => ({
+                                    ...prev,
+                                    eskillchks: checked
+                                    ? [...prev.eskillchks, value]
+                                    : prev.eskillchks.filter(skill => skill !== value)
+                            }           ));
 
-        }
+                        }
 
-    } else {
+                } else {
 
-        SetEmpForm(prev => ({
-            ...prev,
-            [name]: value
-        }));
+                        SetEmpForm(prev => ({
+                            ...prev,
+                            [name]: value
+                        }));
 
-    }
-};
+                }
+    };
     
+    const ChngCheckBoxFun = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+        SetCheckBoxVal(e.target.checked);
+
+    };
+
 
     if(loading == true)
     {
@@ -131,12 +137,14 @@ export default function EmployeeForm(){
                                         <input type="radio" name="etype" value="2" onChange={handleChange}/>Contract
                                 </div>
                                 <div>
-                                        <label><input type="checkbox" value="1"/>I confirm the information is correct </label>
+                                        <label><input type="checkbox" value="1" onChange={ChngCheckBoxFun}/>I confirm the information is correct </label>
                                 </div>
-                                <div>
-                                    <button>Submit</button>
-                                    <button>Clear</button>
-                                </div>
+                               {/* { chboxVal &&  */}
+                                            <div>
+                                                <button disabled={!chboxVal}>Submit</button>
+                                                <button disabled={!chboxVal}>Clear</button>
+                                            </div>
+                                {/* } */}
                         </div>
 
                 </div>
