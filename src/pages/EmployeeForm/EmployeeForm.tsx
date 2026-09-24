@@ -55,10 +55,8 @@ export default function EmployeeForm(){
 
                             SetEmpForm(prev => ({
                                     ...prev,
-                                    eskillchks: checked
-                                    ? [...prev.eskillchks, value]
-                                    : prev.eskillchks.filter(skill => skill !== value)
-                            }           ));
+                                    eskillchks: checked ? [...prev.eskillchks, value] : prev.eskillchks.filter(skill => skill !== value)
+                            }));
 
                         }
 
@@ -71,7 +69,7 @@ export default function EmployeeForm(){
 
                 }
     };
-    
+
     const ChngCheckBoxFun = (e: React.ChangeEvent<HTMLInputElement>) => {
 
         SetCheckBoxVal(e.target.checked);
