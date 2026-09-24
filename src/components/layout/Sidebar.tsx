@@ -43,17 +43,21 @@ const handleLogout = async () => {
             </p>
 
             <p>
-             <NavLink to="/employee">Employee</NavLink>
+             <NavLink to="/employee">Add/Update/Delete Employee</NavLink>
             </p>
 
             <p>
              <NavLink to="/department">Department</NavLink>
             </p>
 
+            <p>
+                <NavLink to="/employeeform">Employee Form</NavLink>
+            </p>
+
             <p style={{ cursor: "pointer" }} onClick={handleLogout}>
                 Logout
             </p>
-            
+
         </>
 
     );

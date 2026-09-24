@@ -64,10 +64,7 @@ const token = localStorage.getItem("accessToken");
     const isAuthenticated = accessToken !== null;
     // Because isAuthenticated is derived data. If accessToken == null then isAuthenticated = false If accessToken = "eyJ..." then isAuthenticated = true
 
-        const login = (
-            accessToken: string,
-            refreshToken: string
-        ) => {
+        const login = ( accessToken: string, refreshToken: string ) => {
 
                 localStorage.setItem("accessToken", accessToken);
                 localStorage.setItem("refreshToken", refreshToken);
