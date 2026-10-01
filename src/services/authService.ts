@@ -1,6 +1,7 @@
 import api from "./api";
 import type { LoginRequest, LoginResponse } from "../interfaces/auth";
 import type { LogoutRequest } from "../interfaces/LogoutRequest";
+import type {PreQuestions} from "../interfaces/PreQuestions";
 
 export const login = async (
     request: LoginRequest
@@ -23,6 +24,25 @@ export const logout = async (request: LogoutRequest) => {
 
     return response.data;
 
+};
+
+export const getPreQuestions = async () => {
+    const response = await api.get("/Employee/PreQuestions");
+    return response.data;
+};
+
+export const getPreOptions = async (questionId: number) => {
+
+    const response = await api.get(
+        "/Employee/PreOptions",
+        {
+            params: {
+                questionId: questionId
+            }
+        }
+    );
+
+    return response.data;
 };
 
 //  Why Create Services?  

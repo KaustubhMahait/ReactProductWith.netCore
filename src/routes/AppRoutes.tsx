@@ -5,6 +5,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import Employee from "../pages/Employee/Employee";
 import Department from "../pages/Department/Department";
 import EmployeeForm from "../pages/EmployeeForm/EmployeeForm";
+import PreQuestions from "../pages/PreQuestions/PreQuestions";
 
 import MainLayout from "../layouts/MainLayout";
 import ProtectedRoute from "./ProtectedRoute";
@@ -34,6 +35,8 @@ export default function AppRoutes() {
                         <Route path="/department" element={<Department />} />
 
                         <Route path="/employeeform" element={<EmployeeForm />} />
+
+                        <Route path="/prequestions" element={<PreQuestions />} />
 
                     </Route>
 

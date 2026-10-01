@@ -58,6 +58,17 @@ export default function EmployeeForm(){
                                     eskillchks: checked ? [...prev.eskillchks, value] : prev.eskillchks.filter(skill => skill !== value)
                             }));
 
+                            //     checked?
+                            //      /      \
+                            //    YES       NO
+                            //     │         │
+                            //     ▼         ▼
+                            //    ADD       REMOVE
+                            //     │         │
+                            //     ▼         ▼
+                            //  spread +     filter()
+                            //   value
+
                         }
 
                 } else {

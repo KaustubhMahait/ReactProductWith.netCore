@@ -54,6 +54,10 @@ const handleLogout = async () => {
                 <NavLink to="/employeeform">Employee Form</NavLink>
             </p>
 
+             <p>
+                <NavLink to="/prequestions">Prequesion Form</NavLink>
+            </p>
+
             <p style={{ cursor: "pointer" }} onClick={handleLogout}>
                 Logout
             </p>
