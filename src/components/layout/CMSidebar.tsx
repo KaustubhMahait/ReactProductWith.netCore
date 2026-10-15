@@ -23,11 +23,14 @@ export default function CMSidebar() {
                         <NavLink to="/cmdashboard" className={({ isActive }) => `cm-menu-link ${isActive ? "active" : ""}`} >
                              Dashboard
                         </NavLink>
-                        
+
                         <NavLink to="/cmpreforms" className={({ isActive }) => `cm-menu-link ${isActive ? "active" : ""}`} >
                              Pre-Forms
                         </NavLink>
-
+                        
+                        <NavLink to="/cmmainforms" className={({ isActive }) => `cm-menu-link ${isActive ? "active" : ""}`} >
+                             Main-Forms
+                        </NavLink>
                 
             </nav>
 

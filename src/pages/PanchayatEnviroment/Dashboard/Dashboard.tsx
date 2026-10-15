@@ -18,19 +18,9 @@ export default function Dashboard(){
 
     },[]);
 
-    return(
-        //  <div className="cm-dashboard">
-        //     <h1>CM Dashboard</h1>
+    return(        
 
-            
-        // </div>
-
-        <div className="employee-page">
-
-
-            {/* ==========================================
-                PAGE HEADER
-            ========================================== */}
+        <div className="employee-page">          
 
             <div className="employee-page-header">
 
