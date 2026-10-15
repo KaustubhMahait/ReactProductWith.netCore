@@ -13,15 +13,15 @@ export interface CMLoginResponse {
 
 export interface PanchayatLoginUser {
             "userID": string ,
-            "roleId": string | null,
+            "roleId": string ,
             "userName": string,
             "district": string | null,
             "taluka": string | null,
             "village": string | null,
             "gramPanchayanName": string | null,
             "peopleGrade": string | null,
-            "mobileNumber": string | null,
-            "emailId": string | null,
+            "mobileNumber": string ,
+            "emailId": string ,
             "villagePeopleCount": string | null,
             "femaleCount": string | null,
             "maleCount": string | null,

@@ -18,27 +18,17 @@ export default function CMSidebar() {
                 CM Portal
             </div>
 
-            <nav className="cm-sidebar-nav">
-                {/* <NavLink
-                    to="/prequestions"
-                    className={({ isActive }) =>
-                        `cm-menu-link ${isActive ? "active" : ""}`
-                    }
-                >
-                    Pre-Questions
-                </NavLink> */}
+            <nav className="cm-sidebar-nav">                
 
-                        <NavLink
-                    to="/cmdashboard"
-                    className={({ isActive }) =>
-                        `cm-menu-link ${isActive ? "active" : ""}`
-                    }
-                >
-                    Dashboard
-                </NavLink>
+                        <NavLink to="/cmdashboard" className={({ isActive }) => `cm-menu-link ${isActive ? "active" : ""}`} >
+                             Dashboard
+                        </NavLink>
+                        
+                        <NavLink to="/cmpreforms" className={({ isActive }) => `cm-menu-link ${isActive ? "active" : ""}`} >
+                             Pre-Forms
+                        </NavLink>
 
-
-                {/* Add more CM menu items here */}
+                
             </nav>
 
             <button

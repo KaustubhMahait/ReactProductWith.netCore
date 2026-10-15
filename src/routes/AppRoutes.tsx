@@ -12,6 +12,7 @@ import MainLayout from "../layouts/MainLayout";
 import ProtectedRoute from "./ProtectedRoute";
 
 import PanchayatLoginPage from "../pages/PanchayatEnviroment/PanchayatLoginPage";
+import CMPreForms from "../pages/PanchayatEnviroment/PreForms/PreForms";
 
 import CMProtectedRoute from "./CMProtectedRoute";
 import CMLayout from "../layouts/CMLayout";
@@ -35,9 +36,10 @@ export default function AppRoutes() {
                 {/* CM Pages */}
                 <Route element={<CMProtectedRoute />}>
                         <Route element={<CMLayout />}>
-                        {/* <Route path="/prequestions" element={<PreQuestions />} /> */}
+                        
                         <Route path="/cmdashboard" element={<CMDashboard />} />
-                            {/* Add other CM routes here */}
+                        <Route path="/cmpreforms" element={<CMPreForms />} />
+                            
                         </Route>
                 </Route>
 

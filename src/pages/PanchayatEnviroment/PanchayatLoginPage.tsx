@@ -32,10 +32,29 @@ const handleCMLogin = async () => {
             );
 
             localStorage.setItem(
-                "productionUserName",
+                "productionUserid",
+                user.userID
+            );
+
+            localStorage.setItem(
+                "productionUsername",
                 user.userName
             );
 
+            localStorage.setItem(
+                "productionRoleid",
+                user.roleId
+            );
+
+            localStorage.setItem(
+                "productionMobilenumber",
+                user.mobileNumber
+            );
+
+            localStorage.setItem(
+                "productionEmailid",
+                user.emailId
+            );
             
             console.log("Production token and username stored successfully.");
 
