@@ -6,9 +6,15 @@ import Employee from "../pages/Employee/Employee";
 import Department from "../pages/Department/Department";
 import EmployeeForm from "../pages/EmployeeForm/EmployeeForm";
 import PreQuestions from "../pages/PreQuestions/PreQuestions";
+import CMDashboard from "../pages/PanchayatEnviroment/Dashboard/Dashboard";
 
 import MainLayout from "../layouts/MainLayout";
 import ProtectedRoute from "./ProtectedRoute";
+
+import PanchayatLoginPage from "../pages/PanchayatEnviroment/PanchayatLoginPage";
+
+import CMProtectedRoute from "./CMProtectedRoute";
+import CMLayout from "../layouts/CMLayout";
 
 export default function AppRoutes() {
 
@@ -21,6 +27,19 @@ export default function AppRoutes() {
                 {/* Login */}
 
                 <Route path="/" element={<Login />}/>
+
+                {/* Panchayat Enviroment */}
+
+                <Route path="/panchayat-login" element={<PanchayatLoginPage />} />
+
+                {/* CM Pages */}
+                <Route element={<CMProtectedRoute />}>
+                        <Route element={<CMLayout />}>
+                        {/* <Route path="/prequestions" element={<PreQuestions />} /> */}
+                        <Route path="/cmdashboard" element={<CMDashboard />} />
+                            {/* Add other CM routes here */}
+                        </Route>
+                </Route>
 
                 {/* Layout */}
 
@@ -41,6 +60,8 @@ export default function AppRoutes() {
                     </Route>
 
                 </Route>
+
+                
 
             </Routes>
 

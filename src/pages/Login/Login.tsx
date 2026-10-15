@@ -78,6 +78,8 @@ import { login } from "../../services/authService";
 import "./Login.css";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useLoginType } from "../../context/LoginTypeContext";
+
 
 export default function Login() {
 
@@ -85,6 +87,7 @@ export default function Login() {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const { setLoginType } = useLoginType();
 
 const handleLogin = async () => {
 
@@ -96,7 +99,7 @@ const handleLogin = async () => {
         });
 
         auth.login( response.accessToken, response.refreshToken )
-
+        setLoginType("employee");
         navigate("/dashboard");
 
     }
@@ -104,6 +107,19 @@ const handleLogin = async () => {
 
         console.error(error);
 
+    }
+
+};
+
+const handleGoToTestPanchayat = () => {
+
+    try{
+
+        navigate("/panchayat-login");
+
+    }
+    catch (error) {
+        console.error(error);
     }
 
 };
@@ -147,6 +163,8 @@ const handleLogin = async () => {
                             password
                     }, null, 2)}
                 </pre>
+
+                <button onClick={handleGoToTestPanchayat}>Go to Test Panchayat Enviroment</button>
 
             </div>
 

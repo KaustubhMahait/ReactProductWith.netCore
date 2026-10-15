@@ -1,0 +1,72 @@
+.cm-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 14px;
+    box-sizing: border-box;
+    background: #fff;
+    border-right: 1px solid #dce4ef;
+}
+
+.cm-sidebar-brand {
+    font-size: 21px;
+    font-weight: 700;
+    color: #17365d;
+    padding: 8px 12px 28px;
+}
+
+.cm-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cm-menu-link {
+    padding: 12px 14px;
+    border-radius: 7px;
+    color: #475569;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.cm-menu-link:hover {
+    background: #f1f5f9;
+}
+
+.cm-menu-link.active {
+    background: #e7effb;
+    color: #17365d;
+    font-weight: 600;
+}
+
+.cm-logout-button {
+    margin-top: auto;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 7px;
+    background: #fff1f2;
+    color: #be123c;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cm-logout-button:hover {
+    background: #ffe4e6;
+}
+
+@media (max-width: 768px) {
+    .cm-sidebar {
+        width: 190px;
+    }
+
+    .cm-main-content {
+        padding: 16px;
+    }
+
+    .cm-header {
+        padding: 12px 16px;
+    }
+}
