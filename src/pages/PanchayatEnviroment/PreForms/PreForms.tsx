@@ -63,7 +63,11 @@ export default function PreForms(){
 
                         {
                         
-                            
+                            data?.items.map( (item)=>(
+                                <div key={item.questionID}>
+                                    <h3>{item.srNo}</h3>
+                                </div>
+                            ))  
 
                         }
 
